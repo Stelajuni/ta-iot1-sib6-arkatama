@@ -1,9 +1,9 @@
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Sofbox - Responsive Bootstrap 4 Admin Dashboard Template</title>
+<title>IOT PANEL STELA</title>
 <!-- Favicon -->
-<link rel="shortcut icon" href="images/favicon.ico" />
+<link rel="shortcut icon" href="images/iot.ico" />
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <!-- Typography CSS -->
