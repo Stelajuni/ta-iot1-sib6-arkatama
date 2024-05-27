@@ -20,7 +20,13 @@ class SensorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sensor = new Sensor;
+        $sensor->name = $request->name;
+        $sensor->nilai = $request->nilai;
+        $sensor->save();
+        return response()->json([
+            "message" => "Sensor Telah Ditambahkan."
+        ], 201);
     }
 
     /**
@@ -28,7 +34,7 @@ class SensorController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return Sensor::find($id);
     }
 
     /**
@@ -36,7 +42,19 @@ class SensorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        if (Sensor::where('id', $id)->exists()) {
+            $sensor = Sensor::find($id);
+            $sensor->name = is_null($request->name) ? $sensor->name:$request->name;
+            $sensor->nilai = is_null($request->nilai) ? $sensor->nilai:$request->nilai;
+            $sensor->save();
+            return response()->json([
+                "message" => "Sensor telah diupdate."
+            ], 201);
+        }else {
+            return response()->json([
+                "message" => "Sensor tidak ditemukan."
+            ], 404);
+        }
     }
 
     /**
@@ -44,6 +62,16 @@ class SensorController extends Controller
      */
     public function destroy(string $id)
     {
-        //
-    }
+        if (Sensor::where('id', $id)->exists()) {
+            $sensor = Sensor::find($id);
+            $sensor->delete();
+            return response()->json([
+            "message"=> "Sensor telah dihapus."
+            ], 201);
+            } else {
+            return response() >json([
+            "message"=> "Sensor tidak ditemukan."
+            ], 404);
+            }
+        }
 }
