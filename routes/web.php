@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LedController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,10 +18,6 @@ Route::get('/dashboard', function () {
     return view('pages.dashboard', $data);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::get('/coba', function () {
-//     return view('pages.coba');
-// })->middleware(['auth', 'verified']);
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -28,6 +25,10 @@ Route::middleware('auth')->group(function () {
 
     //Users
     Route::get('users', [UserController::class, 'index'])->name('users.index');
+
+    //Leds
+    Route::get('leds', [LedController::class, 'index'])->name('leds.index');
+    Route::post('leds', [LedController::class, 'store'])->name('leds.store');
 });
 
 require __DIR__.'/auth.php';

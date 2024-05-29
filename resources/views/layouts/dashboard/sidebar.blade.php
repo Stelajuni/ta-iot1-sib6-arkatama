@@ -28,11 +28,18 @@
                     <a href="chat.html" class="iq-waves-effect"><i class="ri-sensor-fill"></i><span>Sensor</span></a>
                 </li>
 
-                <li class="
+                {{-- <li class="
                 @if (request()->url() == '#') active @endif
                 ">
                     <a href="chat.html" class="iq-waves-effect"><i class="ri-lightbulb-fill"></i><span>LED
                             Control</span></a>
+                </li> --}}
+
+                <li class="
+                @if (request()->url() == route('leds.index')) active @endif
+                ">
+                    <a href="{{ route('leds.index') }}" class="iq-waves-effect"><i
+                            class="ri-lightbulb-fill"></i><span>LED Control</span></a>
                 </li>
 
                 <li class="

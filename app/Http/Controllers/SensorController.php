@@ -3,75 +3,41 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Sensor;
+use App\Models\DHT11;
+use App\Models\MQ5;
+use App\Models\Rain;
 
 class SensorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function api_dht11(Request $request)
     {
-        return Sensor::all();
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        $sensor = new Sensor;
-        $sensor->name = $request->name;
-        $sensor->nilai = $request->nilai;
-        $sensor->save();
-        return response()->json([
-            "message" => "Sensor Telah Ditambahkan."
+        $dht11 = new DHT11;
+        $dht11 -> name = $request-> name;
+        $dht11 -> suhu = $request-> suhu;
+        $dht11 -> kelembapan = $request->kelembapan;
+        $dht11 -> save();
+        return response () -> json ([
+            "message" => "Data telah ditambahkan."
         ], 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function api_mq5(Request $request)
     {
-        return Sensor::find($id);
+        $mq5 = new MQ5;
+        $mq5 -> nilai_gas = $request->nilai_gas;
+        $mq5 -> save();
+        return response () -> json ([
+            "message" => "Data telah ditambahkan."
+        ], 201);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function api_rain(Request $request)
     {
-        if (Sensor::where('id', $id)->exists()) {
-            $sensor = Sensor::find($id);
-            $sensor->name = is_null($request->name) ? $sensor->name:$request->name;
-            $sensor->nilai = is_null($request->nilai) ? $sensor->nilai:$request->nilai;
-            $sensor->save();
-            return response()->json([
-                "message" => "Sensor telah diupdate."
-            ], 201);
-        }else {
-            return response()->json([
-                "message" => "Sensor tidak ditemukan."
-            ], 404);
-        }
+        $rain = new Rain;
+        $rain -> nilai_rain = $request->nilai_rain;
+        $rain -> save();
+        return response () -> json ([
+            "message" => "Data telah ditambahkan."
+        ], 201);
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        if (Sensor::where('id', $id)->exists()) {
-            $sensor = Sensor::find($id);
-            $sensor->delete();
-            return response()->json([
-            "message"=> "Sensor telah dihapus."
-            ], 201);
-            } else {
-            return response() >json([
-            "message"=> "Sensor tidak ditemukan."
-            ], 404);
-            }
-        }
 }
