@@ -11,14 +11,26 @@ class SensorController extends Controller
 {
     public function api_dht11(Request $request)
     {
-        $dht11 = new DHT11;
-        $dht11 -> name = $request-> name;
-        $dht11 -> suhu = $request-> suhu;
-        $dht11 -> kelembapan = $request->kelembapan;
-        $dht11 -> save();
-        return response () -> json ([
-            "message" => "Data telah ditambahkan."
-        ], 201);
+        $data ['title'] = 'Sensor';
+        $data ['breadcrumbs'][]= [
+            'title' => 'Dashboard',
+            'url' => route('dashboard')
+        ];
+        $data ['breadcrumbs'][]= [
+            'title' => 'Sensor',
+            'url' => 'sensor.api_dht11'
+        ];
+
+        // $dht11 = new DHT11;
+        // $dht11 -> name = $request-> name;
+        // $dht11 -> suhu = $request-> suhu;
+        // $dht11 -> kelembapan = $request->kelembapan;
+        // // $dht11 -> save();
+        // return response () -> json ([
+        //     "message" => "Data telah ditambahkan."
+        // ], 201);
+
+        return view('pages.sensor', $data);
     }
 
     public function api_mq5(Request $request)
@@ -40,4 +52,6 @@ class SensorController extends Controller
             "message" => "Data telah ditambahkan."
         ], 201);
     }
+
+
 }

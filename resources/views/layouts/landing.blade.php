@@ -94,7 +94,7 @@
              @endif
 
             </ul>
-            <span class="nav-item social-icons">
+            {{-- <span class="nav-item social-icons">
                 <span class="fa-stack">
                     <a href="#your-link">
                         <i class="fas fa-circle fa-stack-2x facebook"></i>
@@ -107,7 +107,7 @@
                         <i class="fab fa-twitter fa-stack-1x"></i>
                     </a>
                 </span>
-            </span>
+            </span> --}}
         </div>
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
@@ -135,7 +135,7 @@
                     </div> <!-- end of col -->
                     <div class="col-lg-6">
                         <div class="image-container">
-                            <img class="img-fluid" src="images/header-teamwork.svg" alt="alternative">
+                            <img class="img-fluid" src="images/landing-page2.svg" alt="alternative">
                         </div> <!-- end of image-container/gambar besar -->
                     </div> <!-- end of col -->
                 </div> <!-- end of row -->

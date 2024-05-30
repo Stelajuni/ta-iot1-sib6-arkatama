@@ -42,25 +42,25 @@ class UserController extends Controller
                 'required',
                 'min:8'
             ],
-            'password_confirmation' => [
-                'required',
-                'same:password'
-            ],
-            'avatar'    => [
-                'nullable',
-                'image',
-                'mimes:jpg,jpeg,png',
-                'max:2048' // 2MB
-            ]
+            // 'password_confirmation' => [
+            //     'required',
+            //     'same:password'
+            // ],
+            // 'avatar'    => [
+            //     'nullable',
+            //     'image',
+            //     'mimes:jpg,jpeg,png',
+            //     'max:2048' // 2MB
+            // ]
         ]);
 
         // unggah avatar
-        if ($request->hasFile('avatar')) {
-            $avatar = $request->file('avatar');
-            $avatarPath = $avatar->store('avatars', 'public');
+        // if ($request->hasFile('avatar')) {
+        //     $avatar = $request->file('avatar');
+        //     $avatarPath = $avatar->store('avatars', 'public');
 
-            $validated['avatar'] = $avatarPath;
-        }
+        //     $validated['avatar'] = $avatarPath;
+        // }
 
         // membuat user baru
         $user = User::create($validated);
@@ -105,33 +105,33 @@ class UserController extends Controller
                 'required',
                 'min:8'
             ],
-            'password_confirmation' => [
-                'required',
-                'same:password'
-            ],
-            'avatar'    => [
-                'nullable',
-                'image',
-                'mimes:jpg,jpeg,png',
-                'max:2048' // 2MB
-            ]
+            // 'password_confirmation' => [
+            //     'required',
+            //     'same:password'
+            // ],
+            // 'avatar'    => [
+            //     'nullable',
+            //     'image',
+            //     'mimes:jpg,jpeg,png',
+            //     'max:2048' // 2MB
+            // ]
         ]);
 
         // unggah avatar
-        if ($request->hasFile('avatar')) {
-            $avatar = $request->file('avatar');
-            $avatarPath = $avatar->store('avatars', 'public');
+        // if ($request->hasFile('avatar')) {
+        //     $avatar = $request->file('avatar');
+        //     $avatarPath = $avatar->store('avatars', 'public');
 
-            $validated['avatar'] = $avatarPath;
-        }
+        //     $validated['avatar'] = $avatarPath;
+        // }
 
-        $user = User::find($id);
-        $user->update($validated);
+        // $user = User::find($id);
+        // $user->update($validated);
 
-        return response()->json([
-            'message'   => 'Berhasil mengupdate data user',
-            'data'      => $user
-        ], 200);
+        // return response()->json([
+        //     'message'   => 'Berhasil mengupdate data user',
+        //     'data'      => $user
+        // ], 200);
     }
 
     /**

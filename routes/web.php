@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LedController;
+use App\Http\Controllers\SensorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -29,6 +30,9 @@ Route::middleware('auth')->group(function () {
     //Leds
     Route::get('leds', [LedController::class, 'index'])->name('leds.index');
     Route::post('leds', [LedController::class, 'store'])->name('leds.store');
+
+    //Sensor
+    Route::get('sensor', [SensorController::class, 'api_dht11'])->name('sensor.api_dht11');
 });
 
 require __DIR__.'/auth.php';

@@ -22,10 +22,12 @@ Route::post('/rain', [SensorController::class, 'api_rain']);
 // Route::get('/users/{id}', [UserController::class, 'update']);
 // Route::get('/users/{id}', [UserController::class, 'destroy']);
 
-
-//resource route
-Route::resource('users', UserController::class)
-    ->except(['create', 'edit']);
+// route group name api
+Route::group(['as' => 'api.'], function () {
+    // resource route
+    Route::resource('users', UserController::class)
+        ->except(['create', 'edit']);
+});
 
 Route::prefix('/leds')->name('leds.')->group(function () {
     Route::get('/', [LedController::class, 'index'])

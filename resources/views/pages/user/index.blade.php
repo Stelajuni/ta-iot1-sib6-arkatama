@@ -76,9 +76,76 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary">Simpan</button>
+                    <button type="button" class="btn btn-primary" onclick="createUser()">Simpan</button>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        //toastr.success('Have fun storming the castle!', 'Miracle Max Says')
+        function createUser() {
+            const url = "{{ route('api.users.store') }}";
+
+            // ambil form data
+            let data = {
+                name: $('#addName').val(),
+                email: $('#addEmail').val(),
+                password: $('#addPassword').val(),
+            }
+
+            // kirim data ke server POST /users
+            $.post(url, data)
+                .done((response) => {
+                    // tampilkan pesan sukses
+                    toastr.success(response.message, 'Sukses')
+
+                    // reload halaman setelah 3 detik
+                    setTimeout(() => {
+                        location.reload()
+                    }, 3000);
+                })
+                .fail((error) => {
+                    // ambil response error
+                    let response = error.responseJSON
+
+                    // tampilkan pesan error
+                    toastr.error(response.message, 'Error')
+
+                    // tampilkan error validation
+                    if (response.errors) {
+                        // loop object errors
+                        for (const error in response.errors) {
+                            // cari input name yang error pada #addForm
+                            let input = $(`#addForm input[name="${error}"]`)
+
+                            // tambahkan class is-invalid pada input
+                            input.addClass('is-invalid');
+
+                            // buat elemen class="invalid-feedback"
+                            let feedbackElement = `<div class="invalid-feedback">`
+                            feedbackElement += `<ul class="list-unstyled">`
+                            response.errors[error].forEach((message) => {
+                                feedbackElement += `<li>${message}</li>`
+                            })
+                            feedbackElement += `</ul>`
+                            feedbackElement += `</div>`
+
+                            // tambahkan class invalid-feedback setelah input
+                            input.after(feedbackElement)
+                        }
+                    }
+                })
+        }
+
+        function editUser(){
+
+        }
+
+        function deleteUser(){
+
+        }
+    </script>
+@endpush

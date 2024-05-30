@@ -22,18 +22,18 @@
                             class="ri-dashboard-fill"></i><span>Dashboard</span></a>
                 </li>
 
-                <li class="
-                @if (request()->url() == '#') active @endif
-                ">
-                    <a href="chat.html" class="iq-waves-effect"><i class="ri-sensor-fill"></i><span>Sensor</span></a>
-                </li>
-
                 {{-- <li class="
                 @if (request()->url() == '#') active @endif
                 ">
-                    <a href="chat.html" class="iq-waves-effect"><i class="ri-lightbulb-fill"></i><span>LED
-                            Control</span></a>
+                    <a href="chat.html" class="iq-waves-effect"><i class="ri-sensor-fill"></i><span>Sensor</span></a>
                 </li> --}}
+
+                <li class="
+                @if (request()->url() == route('sensor.api_dht11')) active @endif
+                ">
+                    <a href="{{ route('sensor.api_dht11') }}" class="iq-waves-effect"><i
+                            class="ri-sensor-fill"></i><span>Sensor</span></a>
+                </li>
 
                 <li class="
                 @if (request()->url() == route('leds.index')) active @endif
