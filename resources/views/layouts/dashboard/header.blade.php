@@ -3,7 +3,7 @@
         <div class="iq-sidebar-logo">
             <div class="top-logo">
                 <a href="index.html" class="logo">
-                    <img src="logo-iot.png" class="img-fluid" alt="">
+                    {{-- <img src="image/header/logo-iot-2.png" class="img-fluid" alt=""> --}}
                     <span>PANEL</span>
                 </a>
             </div>

@@ -14,6 +14,7 @@ Route::get('/user', function (Request $request) {
 Route::post('/dht11', [SensorController::class, 'api_dht11']);
 Route::post('/mq5', [SensorController::class, 'api_mq5']);
 Route::post('/rain', [SensorController::class, 'api_rain']);
+//Route::post('/kelembapan', [SensorController::class, 'api_kelembapan']);
 
 //CRUD
 // Route::get('/users', [UserController::class, 'index']);
@@ -27,6 +28,10 @@ Route::group(['as' => 'api.'], function () {
     // resource route
     Route::resource('users', UserController::class)
         ->except(['create', 'edit']);
+
+    // Route::resource('sensor/dht11', SensorController::class)
+    //     ->names('sensor.dht');
+
 });
 
 Route::prefix('/leds')->name('leds.')->group(function () {

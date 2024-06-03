@@ -20,8 +20,8 @@
                                 <div class="d-flex w-100 justify-content-between">
                                     <div
                                         class="d-flex align-items-start
-                            @if ($led->status == '1') text-primary @endif
-                            ">
+                                    @if ($led->status == '1') text-primary @endif
+                                    ">
                                         <i class="ri-lightbulb-line fa-fw fa-4x"></i>
                                         <div>
                                             <h6 class="p-0 m-0 fw-bold">{{ $led->name }}</h6>

@@ -135,7 +135,7 @@
                     </div> <!-- end of col -->
                     <div class="col-lg-6">
                         <div class="image-container">
-                            <img class="img-fluid" src="images/landing-page2.svg" alt="alternative">
+                            <img class="img-fluid" src="images/landingpage.svg" alt="alternative">
                         </div> <!-- end of image-container/gambar besar -->
                     </div> <!-- end of col -->
                 </div> <!-- end of row -->
@@ -198,12 +198,12 @@
     <!-- end of customers --> --}}
 
 
-    {{-- <!-- Services -->
+    <!-- Services -->
     <div id="services" class="cards-1">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Business Growth Services</h2>
+                    <h2>Project Documentation</h2>
                     <p class="p-heading p-large">We serve small and medium sized companies in all tech related industries with high quality growth services which are presented below</p>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -244,7 +244,7 @@
             </div> <!-- end of row -->
         </div> <!-- end of container -->
     </div> <!-- end of cards-1 -->
-    <!-- end of services --> --}}
+    <!-- end of services -->
 
 
     {{-- <!-- Details 1 -->
@@ -731,7 +731,7 @@
 
 
     <!-- Contact -->
-    <div id="contact" class="form-2">
+    {{-- <div id="contact" class="form-2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -791,7 +791,7 @@
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
-    </div> <!-- end of form-2 -->
+    </div> <!-- end of form-2 --> --}}
     <!-- end of contact -->
 
 
@@ -862,7 +862,7 @@
 
 
     <!-- Copyright -->
-    <div class="copyright">
+    {{-- <div class="copyright">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -871,7 +871,7 @@
                 </div> <!-- end of col -->
             </div> <!-- enf of row -->
         </div> <!-- end of container -->
-    </div> <!-- end of copyright -->
+    </div> <!-- end of copyright --> --}}
     <!-- end of copyright -->
 
 

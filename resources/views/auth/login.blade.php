@@ -36,25 +36,16 @@
                             <div class="sign-info">
                                 <span class="dark-color d-inline-block line-height-2">Don't have an account? <a
                                         href="{{ route('register') }}">Sign up</a></span>
-                                <ul class="iq-social-media">
-                                    <li><a href="#"><i class="ri-facebook-box-line"></i></a></li>
-                                    <li><a href="#"><i class="ri-twitter-line"></i></a></li>
-                                    <li><a href="#"><i class="ri-instagram-line"></i></a></li>
-                                </ul>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="col-sm-6 text-center">
-                    <div class="sign-in-detail text-white"
-                        style="background: url(images/login/2.jpg) no-repeat 0 0; background-size: cover;">
-                        {{-- <a class="sign-in-logo mb-5" href="#"><img src="images/logo-white.png" class="img-fluid" alt="logo"></a> --}}
-                        <div class="owl-carousel" data-autoplay="true" data-loop="true" data-nav="false" data-dots="true"
-                            data-items="1" data-items-laptop="1" data-items-tab="1" data-items-mobile="1"
-                            data-items-mobile-sm="1" data-margin="0">
-                            <div class="item">
-                                <img src="images/logo_login.svg" class="img-fluid mb-4" alt="logo">
-                            </div>
+                    <div class="owl-carousel" data-autoplay="true" data-loop="true" data-nav="false" data-dots="true"
+                        data-items="1" data-items-laptop="1" data-items-tab="1" data-items-mobile="1"
+                        data-items-mobile-sm="1" data-margin="0">
+                        <div class="item">
+                            <img src="images/sign-in.svg" class="img-fluid mb-4" alt="logo">
                         </div>
                     </div>
                 </div>

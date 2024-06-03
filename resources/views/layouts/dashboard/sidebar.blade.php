@@ -29,9 +29,9 @@
                 </li> --}}
 
                 <li class="
-                @if (request()->url() == route('sensor.api_dht11')) active @endif
+                @if (request()->url() == route('sensor.dht11')) active @endif
                 ">
-                    <a href="{{ route('sensor.api_dht11') }}" class="iq-waves-effect"><i
+                    <a href="{{ route('sensor.dht11') }}" class="iq-waves-effect"><i
                             class="ri-sensor-fill"></i><span>Sensor</span></a>
                 </li>
 

@@ -99,10 +99,10 @@ class UserController extends Controller
             'email'     => [
                 'required',
                 'email',
-                'unique:users,email'
+                'unique:users,email,' . $id
             ],
             'password'  => [
-                'required',
+                'nullable',
                 'min:8'
             ],
             // 'password_confirmation' => [
@@ -125,13 +125,20 @@ class UserController extends Controller
         //     $validated['avatar'] = $avatarPath;
         // }
 
-        // $user = User::find($id);
-        // $user->update($validated);
+        // jika ada password baru, maka update password
+        if ($request->filled('password')) {
+            $validated['password'] = bcrypt($validated['password']);
+        } else {
+            unset($validated['password']);
+        }
 
-        // return response()->json([
-        //     'message'   => 'Berhasil mengupdate data user',
-        //     'data'      => $user
-        // ], 200);
+        $user = User::find($id);
+        $user->update($validated);
+
+        return response()->json([
+            'message'   => 'Berhasil mengupdate data user',
+            'data'      => $user
+        ], 200);
     }
 
     /**
