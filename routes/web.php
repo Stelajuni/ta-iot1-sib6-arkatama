@@ -8,6 +8,7 @@ use App\Http\Controllers\DHT11DataController;
 use App\Http\Controllers\KelembapanDataController;
 use App\Http\Controllers\MQ5DataController;
 use App\Http\Controllers\RainDataController;
+use App\Http\Controllers\SensorDataController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -47,4 +48,5 @@ Route::get('dht11', [DHT11DataController::class, 'latest_dht11']) -> name('lates
 Route::get('kelembapan', [KelembapanDataController::class, 'latest_kelembapan']) -> name('latest_kelembapan');
 Route::get('mq5', [MQ5DataController::class, 'latest_mq5']) -> name('latest_mq5');
 Route::get('rain', [RainDataController::class, 'latest_rain']) -> name('latest_rain');
+
 require __DIR__.'/auth.php';

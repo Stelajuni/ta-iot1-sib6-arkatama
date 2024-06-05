@@ -42,13 +42,14 @@
                             class="ri-lightbulb-fill"></i><span>LED Control</span></a>
                 </li>
 
-                <li class="
+                @if (auth()->user()->role == 'admin')
+                    <li class="
                 @if (request()->url() == route('users.index')) active @endif
                 ">
-                    <a href="{{ route('users.index') }}" class="iq-waves-effect"><i
-                            class="ri-user-5-fill"></i><span>Pengguna</span></a>
-                </li>
-
+                        <a href="{{ route('users.index') }}" class="iq-waves-effect"><i
+                                class="ri-user-5-fill"></i><span>Pengguna</span></a>
+                    </li>
+                @endif
             </ul>
         </nav>
         <div class="p-3"></div>
