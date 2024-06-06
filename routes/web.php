@@ -9,6 +9,7 @@ use App\Http\Controllers\KelembapanDataController;
 use App\Http\Controllers\MQ5DataController;
 use App\Http\Controllers\RainDataController;
 use App\Http\Controllers\SensorDataController;
+use App\Service\WhatsappNotificationService;
 
 use Illuminate\Support\Facades\Route;
 
@@ -40,13 +41,22 @@ Route::middleware('auth')->group(function () {
     //Sensor
     Route::get('sensor', [SensorController::class, 'web_dht11'])->name('sensor.dht11');
 
+    // Route::get('/whatsapp', function () {
+    //     $target = request('target');
+    //     $message = 'Ada kebocoran gas di rumah anda, segera cek dan perbaiki';
+    //     $response = WhatsappNotificationService::sendMessage($target, $message);
+    //     echo $response;
+    // });
+
 });
 
 // Route::get('/sensor', [SensorController::class, 'web_index'])->name('sensor.dht11');
 
-Route::get('dht11', [DHT11DataController::class, 'latest_dht11']) -> name('latest_dht11');
+//Route::get('dht11', [DHT11DataController::class, 'latest_dht11']) -> name('latest_dht11');
 Route::get('kelembapan', [KelembapanDataController::class, 'latest_kelembapan']) -> name('latest_kelembapan');
 Route::get('mq5', [MQ5DataController::class, 'latest_mq5']) -> name('latest_mq5');
 Route::get('rain', [RainDataController::class, 'latest_rain']) -> name('latest_rain');
+
+Route::get('/latest_dht11', [DHT11DataController::class, 'latest_dht11'])->name('latest_dht11');
 
 require __DIR__.'/auth.php';

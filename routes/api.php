@@ -11,9 +11,23 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
+// Define the GET routes
+Route::get('/dht11', [SensorController::class, 'get_dht11']);
+Route::get('/mq5', [SensorController::class, 'get_mq5']);
+Route::get('/rain', [SensorController::class, 'get_rain']);
+
+// Define the POST routes
 Route::post('/dht11', [SensorController::class, 'api_dht11']);
 Route::post('/mq5', [SensorController::class, 'api_mq5']);
 Route::post('/rain', [SensorController::class, 'api_rain']);
+
+// Route::post('/dht11', [SensorController::class, 'api_dht11']);
+// Route::post('/mq5', [SensorController::class, 'api_mq5']);
+// Route::post('/rain', [SensorController::class, 'api_rain']);
+
+// Route::get('/api/dht11', [SensorController::class, 'get_dht11']);
+// Route::get('/api/mq5', [SensorController::class, 'get_mq5']);
+// Route::get('/api/rain', [SensorController::class, 'get_rain']);
 //Route::post('/kelembapan', [SensorController::class, 'api_kelembapan']);
 
 //CRUD

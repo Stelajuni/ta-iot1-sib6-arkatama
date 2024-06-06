@@ -40,7 +40,7 @@
                     <div class="iq-card">
                         <div class="iq-card-header d-flex justify-content-between align-items-center">
                             <div class="iq-header-title">
-                                <h4 class="card-title">MQ5</h4>
+                                <h4 class="card-title">Rain</h4>
                             </div>
                         </div>
                         <div class="iq-card-body">
@@ -303,7 +303,7 @@
                         console.log(data);
 
                         // Pastikan data yang diterima sesuai dengan yang diharapkan
-                        if (data.created_at && data.nilai_gas) {
+                        if ((data.created_at != null) &&  (data.nilai_gas !=null)) {
                             const date = new Date(data.created_at).getTime();
                             const value = data.nilai_gas;
 

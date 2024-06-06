@@ -43,7 +43,7 @@ class LedController extends Controller
 
     // CREATE data -> store (POST) -> terserah namanya
     function store(Request $request) {
-        $led = Led::find($id);
+        $led = Led::where('pin', request()->pin)->first();
 
         if (!$led){ //dibaca: jika led tidak ada
         return response()
@@ -83,7 +83,6 @@ class LedController extends Controller
 
     // UPDATE data -> update (PUT/PATCH) -> terserah namanya
     function update(Request $request, $id) {
-
         $validated = $request
         ->validate([
             "name" => [
@@ -134,4 +133,6 @@ class LedController extends Controller
         ], 200);
 
     }
+
+
 }

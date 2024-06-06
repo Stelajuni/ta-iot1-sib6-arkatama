@@ -17,6 +17,7 @@
                     <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Phone Number</th>
                             <th>Email</th>
                             <th>Role</th>
                             <th>Join Date</th>
@@ -27,6 +28,13 @@
                         @foreach ($users as $user)
                             <tr>
                                 <td>{{ $user->name }}</td>
+                                <td>
+                                    @if ($user->phone_number == null)
+                                        <span class="badge badge-secondary">Belum diisi</span>
+                                    @else
+                                        {{ $user->phone_number }}
+                                    @endif
+                                </td>
                                 <td>{{ $user->email }}</td>
                                 <td>
                                     @if ($user->role == 'admin')
@@ -82,6 +90,11 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="addPhoneNumber">Phone Number</label>
+                            <input required type="phone_number" class="form-control" id="addPhoneNumber" name="addPhoneNumber">
+                        </div>
+
+                        <div class="form-group">
                             <label for="addRole">Role</label>
                             <select class="form-control" id="addRole" name="role">
                                 <option value="admin">Admin</option>
@@ -125,8 +138,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="addRole">Role</label>
-                            <select class="form-control" id="addRole" name="role">
+                            <label for="editPhoneNumber">Phone Number</label>
+                            <input required type="phone_number" class="form-control" id="editPhoneNumber" name="phone_number">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editRole">Role</label>
+                            <select class="form-control" id="editRole" name="role">
                                 <option value="admin">Admin</option>
                                 <option value="user" selected>User</option>
                             </select>
@@ -155,12 +173,14 @@
         // saat buka modal addModal kosongkan form, hapus class is-invalid dan invalid-feedback
         $('#addModal').on('show.bs.modal', function(e) {
             $('#addForm').trigger('reset');
+            $('#addPhoneNumber').val(),
             $('#addForm input').removeClass('is-invalid');
             $('#addForm .invalid-feedback').remove();
         })
 
         $('#addModal').on('show.bs.modal', function(e) {
             $('#editForm input').removeClass('is-invalid');
+            $('#addPhoneNumber').val(),
             $('#editForm .invalid-feedback').remove();
         })
 
@@ -170,6 +190,7 @@
             // ambil form data
             let data = {
                 name: $('#addName').val(),
+                phone_number: $('#addPhoneNumber').val(),
                 email: $('#addEmail').val(),
                 password: $('#addPassword').val(),
             }
@@ -225,8 +246,10 @@
             // ambil form data
             let data = {
                 name: $('#editName').val(),
+                phone_number: $('#editPhoneNumber').val(),
                 email: $('#editEmail').val(),
                 password: $('#editPassword').val(),
+                role: $('#editRole').val(),
                 _method: 'PUT'
             }
 
@@ -317,6 +340,7 @@
                 .done((response) => {
                     // isi form editModal dengan data user
                     $('#editName').val(response.data.name);
+                    $('#editPhoneNumber').val(response.data.phone_number);
                     $('#editEmail').val(response.data.email);
 
                     // tampilkan modal editModal

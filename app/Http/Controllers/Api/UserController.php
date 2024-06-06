@@ -113,6 +113,9 @@ class UserController extends Controller
                 'required',
                 'in:admin,user'
             ],
+            'phone_number'  => [
+                'nullable',
+            ],
             // 'password_confirmation' => [
             //     'required',
             //     'same:password'
