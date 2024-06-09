@@ -6,11 +6,11 @@
     <div class="card">
         <h5 class="card-header">LED Control</h5>
         <div class="card-body">
-            <h5 class="card-title"><button type="button" class="btn btn-primary" data-toggle="modal"
+            {{-- <h5 class="card-title"><button type="button" class="btn btn-primary" data-toggle="modal"
                     data-target="#staticBackdrop">
                     <i class="ri-add-line"></i>
                     Tambah LED
-                </button></h5>
+                </button></h5> --}}
             <p class="card-text">
             <div class="row my-4">
                 @foreach ($leds as $led)
@@ -38,14 +38,14 @@
                                         </div>
                                     </div>
 
-                                    <div class="dropdown">
+                                    {{-- <div class="dropdown">
                                         <i class="ri-more-2-fill" type="button" data-toggle="dropdown"
                                             aria-expanded="false"></i>
                                         <div class="dropdown-menu">
                                             <a class="dropdown-item" href="#">Edit</a>
                                             <a class="dropdown-item" href="#">Delete</a>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                 </div>
                             </div>
