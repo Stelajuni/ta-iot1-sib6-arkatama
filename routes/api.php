@@ -59,4 +59,7 @@ Route::prefix('/leds')->name('leds.')->group(function () {
         -> name ('update');
     Route::delete('/{id}', [LedController::class, 'destroy'])
         -> name ('destroy');
-    });
+});
+
+Route::put('/{id}/status', [LedController::class, 'updateStatus'])
+    ->name('updateStatus');

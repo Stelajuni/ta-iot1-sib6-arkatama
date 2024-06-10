@@ -134,5 +134,32 @@ class LedController extends Controller
 
     }
 
+    // Metode baru untuk mengubah status LED
+function updateStatus(Request $request, $id) {
+    $validated = $request->validate([
+        "status" => [
+            "required",
+            "boolean",
+        ],
+    ]);
+
+    $led = Led::find($id);
+
+    if (!$led) {
+        return response()->json([
+            'message' => 'Data tidak ditemukan',
+            'data' => null
+        ], 404);
+    }
+
+    $led->status = $validated['status'];
+    $led->save();
+
+    return response()->json([
+        'message' => 'Status LED berhasil diperbarui',
+        'data' => $led
+    ], 200);
+}
+
 
 }
