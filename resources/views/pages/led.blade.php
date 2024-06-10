@@ -28,11 +28,16 @@
                                             <p class="p-0 m-0 text-muted">Pin: {{ $led->pin }}</p>
                                             <div>
                                                 <div class="custom-control custom-switch">
-                                                    <input @checked($led->status == '1') type="checkbox"
-                                                        class="custom-control-input" id="customSwitch{{ $led->id }}"
+                                                    {{-- <input @checked($led->status == '1') type="checkbox"
+                                                        class="led- toggle custom-control-input" id="customSwitch{{ $led->id }}"
                                                         data-pin="{{ $led->pin }}">
                                                     <label class="custom-control-label"
-                                                        for="customSwitch{{ $led->id }}"></label>
+                                                        for="customSwitch{{ $led->id }}">
+                                                    </label> --}}
+
+                                                    <input @checked($led->status == '1') class="led-toggle form-check-input"
+                                                        data-id="{{ $led->id }}" type="checkbox"
+                                                        id="led-switch-{{ $led->id }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -91,3 +96,26 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $('input.led-toggle').on('change', function() {
+            const value = $(this).prop('checked') ? 1 : 0;
+            const id = $(this).data('id');
+            // mengirimkan data ke api
+            let route = "{{ route('leds.update', ':id') }}";
+            route = route.replace(':id', id);
+            $.post(route, {
+                    status: value,
+                    _method: 'PUT',
+                }, function(data) {
+                    console.log(data);
+                })
+                .fail(function(err) {
+                    $(this).prop('checked', !value);
+                });
+        });
+    </script>
+@endpush
+
+led.blade.php

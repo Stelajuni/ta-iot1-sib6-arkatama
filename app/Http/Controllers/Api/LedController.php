@@ -86,13 +86,11 @@ class LedController extends Controller
         $validated = $request
         ->validate([
             "name" => [
-                "required",
                 "string",
                 "min:3",
                 "max:255",
             ],
             "pin" => [
-                "required",
                 "numeric",
                 "between:0, 39",
 
@@ -103,7 +101,8 @@ class LedController extends Controller
             ],
         ]);
 
-        $led = Led::create($validated);
+        $led = Led::find($id);
+        $led->update($validated);
 
         return response()
             ->json([
